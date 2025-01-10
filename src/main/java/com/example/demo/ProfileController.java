@@ -27,4 +27,6 @@ public class ProfileController {
         System.out.println(profileList + " 반환함");
         return profileList;
     }
+
+
 }

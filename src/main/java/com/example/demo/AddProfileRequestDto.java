@@ -55,7 +55,7 @@ public class AddProfileRequestDto {
                 ", studentId='" + studentId + '\'' +
                 ", gender='" + gender + '\'' +
                 ", description='" + description + '\'' +
-                ", bedTime='" + bedTime + '\'' +
+                ", bedTime='" + bedTime +
                 '}';
     }
 }
