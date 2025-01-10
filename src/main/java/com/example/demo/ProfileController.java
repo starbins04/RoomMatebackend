@@ -17,14 +17,14 @@ public class ProfileController {
     public void addProfile(@RequestBody AddProfileRequestDto requestDto) {
         // 요청 데이터를 Profile 객체로 변환하여 리스트에 저장
         Profile profile = new Profile(requestDto.getName(), requestDto.getStudentId(),
-                requestDto.getGender(), requestDto.getDescription());
+                requestDto.getGender(), requestDto.getDescription(), requestDto.getBedTime());
         profileList.add(profile);
-        System.out.println(profile + " 저장됨222");
+        System.out.println(profileList + " 저장됨");
     }
 
     @GetMapping("/profiles")
     public List<Profile> getList() {
-        System.out.println(profileList + " 반환함222");
+        System.out.println(profileList + " 반환함");
         return profileList;
     }
 }

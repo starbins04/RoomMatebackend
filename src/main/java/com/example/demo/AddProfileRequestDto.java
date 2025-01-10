@@ -5,6 +5,7 @@ public class AddProfileRequestDto {
     private String studentId;
     private String gender;
     private String description;
+    private String bedTime;
 
     // Getter & Setter
     public String getName() {
@@ -39,13 +40,22 @@ public class AddProfileRequestDto {
         this.description = description;
     }
 
+    public String getBedTime() {
+        return bedTime;
+    }
+
+    public void setBedTime(String bedTime) {
+        this.bedTime = bedTime;
+    }
+
     @Override
     public String toString() {
-        return "AddProfileRequestDto{" +
+        return "Profile{" +
                 "name='" + name + '\'' +
                 ", studentId='" + studentId + '\'' +
                 ", gender='" + gender + '\'' +
                 ", description='" + description + '\'' +
+                ", bedTime='" + bedTime + '\'' +
                 '}';
     }
 }

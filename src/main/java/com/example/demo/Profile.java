@@ -6,13 +6,15 @@ public class Profile {
     private String studentId;
     private String gender;
     private String description;
+    private String bedTime;
 
     // 생성자
-    public Profile(String name, String studentId, String gender, String description) {
+    public Profile(String name, String studentId, String gender, String description, String bedTime) {
         this.name = name;
         this.studentId = studentId;
         this.gender = gender;
         this.description = description;
+        this.bedTime = bedTime;
     }
 
     // Getter & Setter
@@ -48,6 +50,14 @@ public class Profile {
         this.description = description;
     }
 
+    public String getBedTime() {
+        return bedTime;
+    }
+
+    public void setBedTime(String bedTime) {
+        this.bedTime = bedTime;
+    }
+
     // toString() 메서드
     @Override
     public String toString() {
@@ -56,6 +66,7 @@ public class Profile {
                 ", studentId='" + studentId + '\'' +
                 ", gender='" + gender + '\'' +
                 ", description='" + description + '\'' +
+                ", bedTime='" + bedTime + '\'' +
                 '}';
     }
 }
