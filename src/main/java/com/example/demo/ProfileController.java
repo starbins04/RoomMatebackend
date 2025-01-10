@@ -1,9 +1,6 @@
 package com.example.demo;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,9 +12,15 @@ public class ProfileController {
 
     @PostMapping("/profiles")
     public void addProfile(@RequestBody AddProfileRequestDto requestDto) {
-        // 요청 데이터를 Profile 객체로 변환하여 리스트에 저장
+        // 요청 데이터를 Profile 객체로 변환
         Profile profile = new Profile(requestDto.getName(), requestDto.getStudentId(),
                 requestDto.getGender(), requestDto.getDescription(), requestDto.getBedTime());
+
+        // 중복된 hashKey가 있는지 확인하여 기존 프로필 삭제
+        profileList.removeIf(item -> item.getHashKey().equals(profile.getHashKey()));
+        System.out.println("삭제됨");
+
+        // 새 프로필 추가
         profileList.add(profile);
         System.out.println(profileList + " 저장됨");
     }
@@ -28,5 +31,14 @@ public class ProfileController {
         return profileList;
     }
 
-
+    @GetMapping("/profiles/{studentId}")
+    public Profile getProfile(@PathVariable("studentId") String studentId) {
+        Profile profile = null;
+        for (var item : profileList) {
+            if (item.getStudentId().equals(studentId)) {
+                profile = item;
+            }
+        }
+        return profile;
+    }
 }

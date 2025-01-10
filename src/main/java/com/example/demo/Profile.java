@@ -7,6 +7,7 @@ public class Profile {
     private String gender;
     private String description;
     private String bedTime;
+    private String hashKey;
 
     // 생성자
     public Profile(String name, String studentId, String gender, String description, String bedTime) {
@@ -15,6 +16,7 @@ public class Profile {
         this.gender = gender;
         this.description = description;
         this.bedTime = bedTime;
+        this.hashKey = name + studentId;
     }
 
     // Getter & Setter
@@ -58,6 +60,14 @@ public class Profile {
         this.bedTime = bedTime;
     }
 
+    public String getHashKey() {
+        return hashKey;
+    }
+
+    public void setHashKey(String hashKey) {
+        this.hashKey = hashKey;
+    }
+
     // toString() 메서드
     @Override
     public String toString() {
@@ -67,6 +77,7 @@ public class Profile {
                 ", gender='" + gender + '\'' +
                 ", description='" + description + '\'' +
                 ", bedTime='" + bedTime + '\'' +
+                ", hashKey='" + hashKey +
                 '}';
     }
 }

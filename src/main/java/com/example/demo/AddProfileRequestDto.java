@@ -6,6 +6,7 @@ public class AddProfileRequestDto {
     private String gender;
     private String description;
     private String bedTime;
+    private String hashKey;
 
     // Getter & Setter
     public String getName() {
@@ -48,6 +49,14 @@ public class AddProfileRequestDto {
         this.bedTime = bedTime;
     }
 
+    public String getHashKey() {
+        return hashKey;
+    }
+
+    public void setHashKey(String hashKey) {
+        this.hashKey = hashKey;
+    }
+
     @Override
     public String toString() {
         return "Profile{" +
@@ -56,6 +65,7 @@ public class AddProfileRequestDto {
                 ", gender='" + gender + '\'' +
                 ", description='" + description + '\'' +
                 ", bedTime='" + bedTime +
+                ", hashKey='" + hashKey +
                 '}';
     }
 }
