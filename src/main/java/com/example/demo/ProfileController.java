@@ -19,12 +19,12 @@ public class ProfileController {
         Profile profile = new Profile(requestDto.getName(), requestDto.getStudentId(),
                 requestDto.getGender(), requestDto.getDescription());
         profileList.add(profile);
-        System.out.println(profile + " 저장됨");
+        System.out.println(profile + " 저장됨222");
     }
 
     @GetMapping("/profiles")
     public List<Profile> getList() {
-        System.out.println(profileList + " 반환함");
+        System.out.println(profileList + " 반환함222");
         return profileList;
     }
 }
