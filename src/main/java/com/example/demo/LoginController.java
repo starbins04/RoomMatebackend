@@ -13,6 +13,12 @@ public class LoginController {
     // 회원가입 처리
     @PostMapping("/login")
     public Integer addLogin(@RequestBody AddLoginRequestDto requestDto) {
+        if(loginList.isEmpty()){
+            Login login2 = new Login(requestDto.getId(), requestDto.getPassword());
+            loginList.add(login2);
+            System.out.println(loginList + " 저장됨");
+            return 1;
+        }
         // 이미 등록된 ID가 있는지 확인
         for (Login login : loginList) {
             if (login.getId().equals(requestDto.getId())) {
