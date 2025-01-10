@@ -20,16 +20,16 @@ public class LoginController {
                     return 1; // 로그인 성공
                 }
             }
+            else{
+                // 새로운 로그인 정보 추가
+                Login login2 = new Login(requestDto.getId(), requestDto.getPassword());
+                loginList.add(login2);
+                System.out.println(loginList + " 저장됨");
+                return 1;
+            }
         }
-
-        // 새로운 로그인 정보 추가
-        Login login = new Login(requestDto.getId(), requestDto.getPassword());
-        loginList.add(login);
-        System.out.println(loginList + " 저장됨");
         return 0;
     }
-
-
 
     // 로그인 목록 조회 (디버깅용)
     @GetMapping("/login")
